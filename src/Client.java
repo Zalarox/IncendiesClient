@@ -7676,7 +7676,7 @@ public class Client extends RSApplet {
 			else
 				s5 = ItemList[i1].itemDescription;
 			if (s5.contains("<")) {
-				s5 = "Why are you examining the" + toLowerCase(itemDef.name) + "?";
+				s5 = "Why are you examining the" + itemDef.name.toLowerCase() + "?";
 			}
 			pushMessage(s5, 0, "");
 		}
@@ -7733,7 +7733,7 @@ public class Client extends RSApplet {
 			String s6;
 			s6 = ItemList[i1].itemDescription;
 			if (s6.contains("<")) {
-				s6 = "Why are you examining the " + toLowerCase(itemDef_1.name) + "?";
+				s6 = "Why are you examining the " + itemDef_1.name.toLowerCase() + "?";
 			}
 			pushMessage(s6, 0, "");
 		}
