@@ -1,0 +1,19 @@
+# ============ #
+# Class  Files #
+# ============ #
+bin/
+
+# ============ #
+#    IDE shit  #
+# ============ #
+nbproject/
+.classpath
+.project
+build.xml
+manifest.mf
+
+# ============ #
+# Batch scripts#
+# ============ #
+run.bat
+compile.bat
