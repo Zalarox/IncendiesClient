@@ -135,7 +135,7 @@ public final class RSInterface {
 			}
 			if (rsInterface.type == 4) {
 				rsInterface.message = stream.readString().replaceAll(
-						"RuneScape", "Zaros");
+						"RuneScape", "Incendius");
 				rsInterface.aString228 = stream.readString();
 			}
 			if (rsInterface.type == 1 || rsInterface.type == 3

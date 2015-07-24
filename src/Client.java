@@ -9810,7 +9810,7 @@ public class Client extends RSApplet {
 				return;
 			}
 			if (loginCode == 6) {
-				loginMessage1 = "RuneScape has been updated!";
+				loginMessage1 = "Incendius has been updated!";
 				loginMessage2 = "Please reload this page.";
 				loginScreenState = 2;
 				return;
@@ -11011,7 +11011,7 @@ public class Client extends RSApplet {
 			g.setColor(Color.yellow);
 			int k = 35;
 			g.drawString(
-					"Sorry, an error has occured whilst loading RuneScape", 30,
+					"Sorry, an error has occured whilst loading Incendius", 30,
 					k);
 			k += 50;
 			g.setColor(Color.white);
