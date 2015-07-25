@@ -33,10 +33,11 @@ final class ObjectManager {
         return l >> 19 & 0xff;
     }
 
-    public final void method171(Class11 aclass11[], WorldController worldController) {
+    public final void method171(Class11 aclass11[],
+			WorldController worldController) {
 		for (int j = 0; j < 4; j++) {
-			for (int k = 0; k < anInt146; k++) {
-				for (int i1 = 0; i1 < anInt147; i1++)
+			for (int k = 0; k < 104; k++) {
+				for (int i1 = 0; i1 < 104; i1++)
 					if ((aByteArrayArrayArray149[j][k][i1] & 1) == 1) {
 						int k1 = j;
 						if ((aByteArrayArrayArray149[1][k][i1] & 2) == 2)
@@ -45,242 +46,253 @@ final class ObjectManager {
 							aclass11[k1].method213(i1, k);
 					}
 
+
 			}
+
+
 		}
-		for (int z = 0; z < 4; z++) {
-			byte abyte0[][] = aByteArrayArrayArray134[z];
+		anInt123 += (int) (Math.random() * 5D) - 2;
+		if (anInt123 < -8)
+			anInt123 = -8;
+		if (anInt123 > 8)
+			anInt123 = 8;
+		anInt133 += (int) (Math.random() * 5D) - 2;
+		if (anInt133 < -16)
+			anInt133 = -16;
+		if (anInt133 > 16)
+			anInt133 = 16;
+		for (int l = 0; l < 4; l++) {
+			byte abyte0[][] = aByteArrayArrayArray134[l];
 			byte byte0 = 96;
 			char c = '\u0300';
 			byte byte1 = -50;
 			byte byte2 = -10;
 			byte byte3 = -50;
-			int j3 = (int) Math.sqrt(byte1 * byte1 + byte2 * byte2 + byte3 * byte3);
+			int j3 = (int) Math.sqrt(byte1 * byte1 + byte2 * byte2 + byte3
+					* byte3);
 			int l3 = c * j3 >> 8;
-			for (int y = 1; y < anInt147 - 1; y++) {
-				for (int x = 1; x < anInt146 - 1; x++) {
-					int k6 = anIntArrayArrayArray129[z][x + 1][y] - anIntArrayArrayArray129[z][x - 1][y];
-					int l7 = anIntArrayArrayArray129[z][x][y + 1] - anIntArrayArrayArray129[z][x][y - 1];
-					int sq = (int) Math.sqrt(k6 * k6 + 0x10000 + l7 * l7);
-					int k12 = (k6 << 8) / sq;
-					int l13 = 0x10000 / sq;
-					int j15 = (l7 << 8) / sq;
-					int j16 = byte0 + (byte1 * k12 + byte2 * l13 + byte3 * j15) / l3;
-					int j17 = (abyte0[x - 1][y] >> 2) + (abyte0[x + 1][y] >> 3) + (abyte0[x][y - 1] >> 2) + (abyte0[x][y + 1] >> 3) + (abyte0[x][y] >> 1);
-					anIntArrayArray139[x][y] = 96;
-				}
+		for (int j4 = 1; j4 < anInt147 - 1; j4++) {
+			for (int j5 = 1; j5 < anInt146 - 1; j5++) {
+				int k6 = anIntArrayArrayArray129[l][j5 + 1][j4]
+				                                            - anIntArrayArrayArray129[l][j5 - 1][j4];
+				int l7 = anIntArrayArrayArray129[l][j5][j4 + 1]
+				                                        - anIntArrayArrayArray129[l][j5][j4 - 1];
+				int j9 = (int) Math.sqrt(k6 * k6 + 0x10000 + l7 * l7);
+				int k12 = (k6 << 8) / j9;
+				int l13 = 0x10000 / j9;
+				int j15 = (l7 << 8) / j9;
+				int j16 = byte0 + (byte1 * k12 + byte2 * l13 + byte3 * j15)
+				/ l3;
+				int j17 = (abyte0[j5 - 1][j4] >> 2)
+				+ (abyte0[j5 + 1][j4] >> 3)
+				+ (abyte0[j5][j4 - 1] >> 2)
+				+ (abyte0[j5][j4 + 1] >> 3) + (abyte0[j5][j4] >> 1);
+				anIntArrayArray139[j5][j4] = j16 - j17;
+			}
 
-			}
-			for (int y = 0; y < anInt147; y++) {
-				anIntArray124[y] = 0;
-				anIntArray125[y] = 0;
-				anIntArray126[y] = 0;
-				anIntArray127[y] = 0;
-				anIntArray128[y] = 0;
-			}
-			for (int x = -5; x < anInt146 + 5; x++) {
-				for (int y = 0; y < anInt147; y++) {
-					int k9 = x + 5;
-					if (k9 >= 0 && k9 < anInt146) {
-						int l12 = aByteArrayArrayArray142[z][k9][y] & 0xff;
-						if (l12 > 0) {
-							Flo flo = Flo.cache[l12 - 1];
-							anIntArray124[y] += flo.anInt397;
-							anIntArray125[y] += flo.anInt395;
-							anIntArray126[y] += flo.anInt396;
-							anIntArray127[y] += flo.anInt398;
-							anIntArray128[y]++;
-						}
-					}
-					int i13 = x - 5;
-					if (i13 >= 0 && i13 < anInt146) {
-						int i14 = aByteArrayArrayArray142[z][i13][y] & 0xff;
-						if (i14 > 0) {
-							Flo flo_1 = Flo.cache[i14 - 1];
-							anIntArray124[y] -= flo_1.anInt397;
-							anIntArray125[y] -= flo_1.anInt395;
-							anIntArray126[y] -= flo_1.anInt396;
-							anIntArray127[y] -= flo_1.anInt398;
-							anIntArray128[y]--;
-						}
+
+		}
+
+
+		for (int k5 = 0; k5 < anInt147; k5++) {
+			anIntArray124[k5] = 0;
+			anIntArray125[k5] = 0;
+			anIntArray126[k5] = 0;
+			anIntArray127[k5] = 0;
+			anIntArray128[k5] = 0;
+		}
+
+
+		for (int l6 = -5; l6 < anInt146 + 5; l6++) {
+			for (int i8 = 0; i8 < anInt147; i8++) {
+				int k9 = l6 + 5;
+				if (k9 >= 0 && k9 < anInt146) {
+					int l12 = aByteArrayArrayArray142[l][k9][i8] & 0xff;
+					if (l12 > 0) {
+						Flo flo = Flo.cache[l12 - 1];
+						anIntArray124[i8] += flo.anInt397;
+						anIntArray125[i8] += flo.anInt395;
+						anIntArray126[i8] += flo.anInt396;
+						anIntArray127[i8] += flo.anInt398;
+						anIntArray128[i8]++;
 					}
 				}
-				if (x >= 1 && x < anInt146 - 1) {
-					int l9 = 0;
-					int j13 = 0;
-					int j14 = 0;
-					int k15 = 0;
-					int k16 = 0;
-					for (int y = -5; y < anInt147 + 5; y++) {
-						int j18 = y + 5;
-						if (j18 >= 0 && j18 < anInt147) {
-							l9 += anIntArray124[j18];
-							j13 += anIntArray125[j18];
-							j14 += anIntArray126[j18];
-							k15 += anIntArray127[j18];
-							k16 += anIntArray128[j18];
-						}
-						int k18 = y - 5;
-						if (k18 >= 0 && k18 < anInt147) {
-							l9 -= anIntArray124[k18];
-							j13 -= anIntArray125[k18];
-							j14 -= anIntArray126[k18];
-							k15 -= anIntArray127[k18];
-							k16 -= anIntArray128[k18];
-						}
-						if (y >= 1 && y < anInt147 - 1 && (!lowMem || (aByteArrayArrayArray149[0][x][y] & 2) != 0 || (aByteArrayArrayArray149[z][x][y] & 0x10) == 0 && method182(y, z, x) == anInt131)) {
-							try {
-								if (z < anInt145)
-									anInt145 = z;
-								int l18 = aByteArrayArrayArray142[z][x][y] & 0xff;
-								int i19 = aByteArrayArrayArray130[z][x][y] & 0xff;
-								if (l18 > 0 || i19 > 0) {
-									int j19 = anIntArrayArrayArray129[z][x][y];
-									int k19 = anIntArrayArrayArray129[z][x + 1][y];
-									int l19 = anIntArrayArrayArray129[z][x + 1][y + 1];
-									int i20 = anIntArrayArrayArray129[z][x][y + 1];
-									int j20 = anIntArrayArray139[x][y];
-									int k20 = anIntArrayArray139[x + 1][y];
-									int l20 = anIntArrayArray139[x + 1][y + 1];
-									int i21 = anIntArrayArray139[x][y + 1];
-									int j21 = -1;
-									int k21 = -1;
-									if(l18 > 0 || i19 != 0) {
-										int h = -1;
-										int s = 0;
-										int l = 0;
-										if(l18 == 0) {
-											h = -1;
-											s = 0;
-											l = 0;
-										} else
-										if (l18 > 0) {
-											h = (l9 * 256) / k15;
-											s = j13 / k16;
-											l = j14 / k16;
-											j21 = method177(h, s, l);
-										} else {
-											h = l18;
-											s = 0;
-											l = 0;
-										}
-										if(h != -1 && k21 == -1)
-											k21 = method177(h, s, l);
-										if(j21 == -1)
-											j21 = k21;
-									}
-									if (z > 0) {
-										boolean hidden = true;
-										if (l18 == 0 && aByteArrayArrayArray136[z][x][y] != 0)
-											hidden = false;
-										if (i19 > 0 && !OverLayFlo317.overLayFlo317s[i19 - 1].aBoolean393)
-											hidden = false;
-										if (hidden && j19 == k19 && j19 == l19 && j19 == i20)
-											anIntArrayArrayArray135[z][x][y] |= 0x924;
-									}
-									int i22 = 0;
-									if (j21 != -1)
-										i22 = Texture.hsl2rgb[method187(k21, 96)];
-									if (i19 == 0) {
-										worldController.method279(z, x, y, 0, 0, -1, j19, k19, l19, i20, method187(j21, j20), method187(j21, k20), method187(j21, l20), method187(j21, k20), 0, 0, 0, 0, i22, 0);
-									} else {
-										int k22 = aByteArrayArrayArray136[z][x][y] + 1;
-										byte byte4 = aByteArrayArrayArray148[z][x][y];
-										OverLayFlo317 overlay_flo = OverLayFlo317.overLayFlo317s[i19 - 1];
-										int floorId = (i19 - 1);
-                               	 		int i23 = overlay_flo.textureId;
-                                		int j23;
-                                		int k23;
-										if (overlay_flo.textureId > 50) {
-											overlay_flo.textureId = -1;
-										}
-										if (i23 >= 0) {
-											k23 = Texture.getAverageTextureColour(i23);
-											j23 = -1;
-										} else if (overlay_flo.rgb == 0xff00ff) {//pink
-											k23 = 0;
-											j23 = -2;
-											i23 = -1;
-										} else if(overlay_flo.rgb == 0x333333) {//green
-											k23 = overlay_flo.int_7;                                
-											j23 = -2;
-											i23 = -1;
-										} else {
-											j23 = method177(overlay_flo.anInt394, overlay_flo.anInt395, overlay_flo.anInt396);
-											k23 = Texture.hsl2rgb[method185(overlay_flo.anInt399, 96)];
-										}
-										if(floorId == 111) {											//Water
-											k23 = Texture.getAverageTextureColour(1);
-											j23 = -1;
-											i23 = 1;
-										} else if(floorId == 53) {										//Blue at duel arena
-											k23 = overlay_flo.rgb = 0xAA9166;
-											i23 = -1;
-										} else if(floorId == 54) {
-									        k23 = overlay_flo.rgb = 0x8B8B83;
-									        j23 = -2;
-									        i23 = -1;
-										} else if(floorId == 52) {										//Green in duel arena
-											k23 = overlay_flo.rgb = 0x736836;
-											i23 = -1;
-										} else if(floorId == 125) {										//Roofs, duel arena
-											k23 = overlay_flo.rgb = 0xAA9166;
-											j23 = -1;
-											i23 = 32;
-										} else if(floorId == 135) {										//Water at duel arena
-											k23 = Texture.getAverageTextureColour(1);
-											j23 = -2;
-											i23 = -1;
-										} else if(j23 == 6041) {										//Al kharid floors
-											k23 = overlay_flo.rgb = 0xAA9166;
-											j23 = -1;
-											i23 = 32;
-										} else if(floorId == 63) {										//Seer's court stairs
-											k23 = overlay_flo.rgb = 0x767676;
-											j23 = -2;
-											i23 = -1;
-										} else if(floorId == 177) {										//Castle Wars, lobby floor
-											k23 = overlay_flo.rgb = 0x4D4D4D;
-											j23 = method177(0,0,55);
-											i23 = -1;
-										} else if(floorId == 72) {										//Cliffside at ogres
-											k23 = overlay_flo.rgb = 0x483B21;
-											j23 = method177(25,146,24);
-										} else if (j23 == 6363 || j23 == 549) {						//Dirt banks, etc
-											k23 = 0x483B21;
-											j23 = method177(25,146,24);
-										} else if (j23 == 40) {//Grey roads
-											k23 = overlay_flo.rgb;
-											i23 = -1;		
-										}
-										worldController.method279(z, x, y, k22, byte4, i23, j19, k19, l19, i20, 
-										
-										method187(j21, j20), method187(j21, k20),
-										method187(j21, l20),method187(j21, i21),
-										
-										method185(j23,j20), method185(j23, k20),
-										method185(j23, l20), method185(j23,i21),
+				int i13 = l6 - 5;
+				if (i13 >= 0 && i13 < anInt146) {
+					int i14 = aByteArrayArrayArray142[l][i13][i8] & 0xff;
+					if (i14 > 0) {
+						Flo flo_1 = Flo.cache[i14 - 1];
+						anIntArray124[i8] -= flo_1.anInt397;
+						anIntArray125[i8] -= flo_1.anInt395;
+						anIntArray126[i8] -= flo_1.anInt396;
+						anIntArray127[i8] -= flo_1.anInt398;
+						anIntArray128[i8]--;
+					}
+				}
+			}
 
-										i22, k23);
-									}
-								}
-							} catch (Exception e) {
+
+			if (l6 >= 1 && l6 < anInt146 - 1) {
+				int l9 = 0;
+				int j13 = 0;
+				int j14 = 0;
+				int k15 = 0;
+				int k16 = 0;
+				for (int k17 = -5; k17 < anInt147 + 5; k17++) {
+					int j18 = k17 + 5;
+					if (j18 >= 0 && j18 < anInt147) {
+						l9 += anIntArray124[j18];
+						j13 += anIntArray125[j18];
+						j14 += anIntArray126[j18];
+						k15 += anIntArray127[j18];
+						k16 += anIntArray128[j18];
+					}
+					int k18 = k17 - 5;
+					if (k18 >= 0 && k18 < anInt147) {
+						l9 -= anIntArray124[k18];
+						j13 -= anIntArray125[k18];
+						j14 -= anIntArray126[k18];
+						k15 -= anIntArray127[k18];
+						k16 -= anIntArray128[k18];
+					}
+					if (k17 >= 1
+							&& k17 < anInt147 - 1
+							&& (!lowMem
+									|| (aByteArrayArrayArray149[0][l6][k17] & 2) != 0 || (aByteArrayArrayArray149[l][l6][k17] & 0x10) == 0
+									&& method182(k17, l, l6) == anInt131)) {
+						if (l < anInt145)
+							anInt145 = l;
+						int l18 = aByteArrayArrayArray142[l][l6][k17] & 0xff;
+						int i19 = aByteArrayArrayArray130[l][l6][k17] & 0xff;
+						if (l18 > 0 || i19 > 0) {
+							int j19 = anIntArrayArrayArray129[l][l6][k17];
+							int k19 = anIntArrayArrayArray129[l][l6 + 1][k17];
+							int l19 = anIntArrayArrayArray129[l][l6 + 1][k17 + 1];
+							int i20 = anIntArrayArrayArray129[l][l6][k17 + 1];
+							int j20 = anIntArrayArray139[l6][k17];
+							int k20 = anIntArrayArray139[l6 + 1][k17];
+							int l20 = anIntArrayArray139[l6 + 1][k17 + 1];
+							int i21 = anIntArrayArray139[l6][k17 + 1];
+							int j21 = -1;
+							int k21 = -1;
+							if (l18 > 0) {
+								int l21 = (l9 * 256) / k15;
+								int j22 = j13 / k16;
+								int l22 = j14 / k16;
+								j21 = method177(l21, j22, l22);
+								l21 = l21 + anInt123 & 0xff;
+								l22 += anInt133;
+								if (l22 < 0)
+									l22 = 0;
+								else if (l22 > 255)
+									l22 = 255;
+								k21 = method177(l21, j22, l22);
 							}
+							if (l > 0) {
+								boolean flag = true;
+								if (l18 == 0
+										&& aByteArrayArrayArray136[l][l6][k17] != 0)
+									flag = false;
+								if (i19 > 0
+										&& !OverLayFlo317.overLayFlo317s[i19 - 1].aBoolean393)
+									flag = false;
+								if (flag && j19 == k19 && j19 == l19
+										&& j19 == i20)
+									anIntArrayArrayArray135[l][l6][k17] |= 0x924;
+							}
+							int i22 = 0;
+							if (j21 != -1)
+								i22 = Texture.hsl2rgb[method187(k21,
+										96)];
+							if (i19 == 0) {
+								worldController.method279(l, l6, k17, 0, 0,
+										-1, j19, k19, l19, i20, method187(
+												j21, j20), method187(j21,
+														k20), method187(j21, l20),
+														method187(j21, i21), 0, 0, 0, 0,
+														i22, 0);
+							} else {
+								int k22 = aByteArrayArrayArray136[l][l6][k17] + 1;
+								byte byte4 = aByteArrayArrayArray148[l][l6][k17];
+								//Flo2 flo_2 = Flo2.flo2[i19 - 1];
+								OverLayFlo317 overlay_flo = OverLayFlo317.overLayFlo317s[i19 - 1];
+                                int textureId = overlay_flo.textureId;
+                                int j23;
+                                int k23;
+								if (textureId > 50) {
+									textureId = -1;
+								}
+								if (textureId >= 0) {
+                                    k23 = Texture.getAverageTextureColour(textureId);
+                                    j23 = -1;
+                                } else if (overlay_flo.rgb == 0xff00ff) {
+                                    k23 = 0;
+                                    j23 = -2;
+                                    textureId = -1;
+                                } else if(overlay_flo.rgb == 0x333333) {
+                                    k23 = Texture.hsl2rgb[method185(overlay_flo.anInt399, 96)];                                
+                                    j23 = -2;
+                                    textureId = -1;
+                                } else {
+                                    j23 = method177(overlay_flo.anInt394, overlay_flo.anInt395, overlay_flo.anInt396);
+                                    k23 = Texture.hsl2rgb[method185(overlay_flo.anInt399, 96)];
+                                }
+								if ((i19-1) == 54) {
+				                    k23 = overlay_flo.rgb = 0x8B8B83;
+				                    j23 = -2;
+				                }
+								if((i19-1) == 111){
+									k23 = Texture.getAverageTextureColour(1);
+									j23 = -1;//method177(150,100,100);
+                                    textureId = 1;
+                                } else if (j23 == 6363) { //river bank (brown shit) 508
+									k23 = 0x483B21;
+									j23 = method177(25,146,24);
+                                } else if((i19-1) == 54){
+									k23 = overlay_flo.rgb;
+									j23 = -2;
+                                    textureId = -1;
+                                }
+                                worldController.method279(l, l6, k17, k22,
+                                        byte4, textureId, j19, k19, l19, i20,
+                                        method187(j21, j20), method187(j21,
+                                                k20), method187(j21, l20),
+                                                method187(j21, i21), method185(j23,
+                                                        j20), method185(j23, k20),
+                                                        method185(j23, l20), method185(j23,
+                                                                i21), i22, k23);
+                                }
 						}
 					}
-
 				}
-			}
-			for (int j8 = 1; j8 < anInt147 - 1; j8++) {
-				for (int i10 = 1; i10 < anInt146 - 1; i10++)
-					worldController.method278(z, i10, j8, method182(j8, z, i10));
+
+
 			}
 		}
+
+
+		for (int j8 = 1; j8 < anInt147 - 1; j8++) {
+			for (int i10 = 1; i10 < anInt146 - 1; i10++)
+				worldController
+				.method278(l, i10, j8, method182(j8, l, i10));
+
+
+		}
+
+
+		}
+
+
 		worldController.method305(-10, -50, -50);
 		for (int j1 = 0; j1 < anInt146; j1++) {
 			for (int l1 = 0; l1 < anInt147; l1++)
 				if ((aByteArrayArrayArray149[1][j1][l1] & 2) == 2)
 					worldController.method276(l1, j1);
+
+
 		}
+
+
 		int i2 = 1;
 		int j2 = 2;
 		int k2 = 4;
@@ -298,30 +310,47 @@ final class ObjectManager {
 							int l5 = k3;
 							int i7 = i3;
 							int k8 = i3;
-							for (; k4 > 0 && (anIntArrayArrayArray135[i3][i4][k4 - 1] & i2) != 0; k4--)
+							for (; k4 > 0
+							&& (anIntArrayArrayArray135[i3][i4][k4 - 1] & i2) != 0; k4--)
 								;
-							for (; l5 < anInt147 && (anIntArrayArrayArray135[i3][i4][l5 + 1] & i2) != 0; l5++)
+							for (; l5 < anInt147
+							&& (anIntArrayArrayArray135[i3][i4][l5 + 1] & i2) != 0; l5++)
 								;
 							label0: for (; i7 > 0; i7--) {
 								for (int j10 = k4; j10 <= l5; j10++)
 									if ((anIntArrayArrayArray135[i7 - 1][i4][j10] & i2) == 0)
 										break label0;
+
+
 							}
+
+
 							label1: for (; k8 < l2; k8++) {
 								for (int k10 = k4; k10 <= l5; k10++)
 									if ((anIntArrayArrayArray135[k8 + 1][i4][k10] & i2) == 0)
 										break label1;
+
+
 							}
+
+
 							int l10 = ((k8 + 1) - i7) * ((l5 - k4) + 1);
 							if (l10 >= 8) {
 								char c1 = '\360';
-								int k14 = anIntArrayArrayArray129[k8][i4][k4] - c1;
+								int k14 = anIntArrayArrayArray129[k8][i4][k4]
+								                                          - c1;
 								int l15 = anIntArrayArrayArray129[i7][i4][k4];
-								WorldController.method277(l2, i4 * 128, l15, i4 * 128, l5 * 128 + 128, k14, k4 * 128, 1);
+								WorldController.method277(l2, i4 * 128, l15,
+										i4 * 128, l5 * 128 + 128, k14,
+										k4 * 128, 1);
 								for (int l16 = i7; l16 <= k8; l16++) {
 									for (int l17 = k4; l17 <= l5; l17++)
-										anIntArrayArrayArray135[l16][i4][l17] &= ~i2; 
+										anIntArrayArrayArray135[l16][i4][l17] &= ~i2;
+
+
 								}
+
+
 							}
 						}
 						if ((anIntArrayArrayArray135[i3][i4][k3] & j2) != 0) {
@@ -329,30 +358,47 @@ final class ObjectManager {
 							int i6 = i4;
 							int j7 = i3;
 							int l8 = i3;
-							for (; l4 > 0 && (anIntArrayArrayArray135[i3][l4 - 1][k3] & j2) != 0; l4--)
+							for (; l4 > 0
+							&& (anIntArrayArrayArray135[i3][l4 - 1][k3] & j2) != 0; l4--)
 								;
-							for (; i6 < anInt146 && (anIntArrayArrayArray135[i3][i6 + 1][k3] & j2) != 0; i6++)
+							for (; i6 < anInt146
+							&& (anIntArrayArrayArray135[i3][i6 + 1][k3] & j2) != 0; i6++)
 								;
 							label2: for (; j7 > 0; j7--) {
 								for (int i11 = l4; i11 <= i6; i11++)
 									if ((anIntArrayArrayArray135[j7 - 1][i11][k3] & j2) == 0)
 										break label2;
+
+
 							}
+
+
 							label3: for (; l8 < l2; l8++) {
 								for (int j11 = l4; j11 <= i6; j11++)
 									if ((anIntArrayArrayArray135[l8 + 1][j11][k3] & j2) == 0)
 										break label3;
+
+
 							}
+
+
 							int k11 = ((l8 + 1) - j7) * ((i6 - l4) + 1);
 							if (k11 >= 8) {
 								char c2 = '\360';
-								int l14 = anIntArrayArrayArray129[l8][l4][k3] - c2;
+								int l14 = anIntArrayArrayArray129[l8][l4][k3]
+								                                          - c2;
 								int i16 = anIntArrayArrayArray129[j7][l4][k3];
-								WorldController.method277(l2, l4 * 128, i16, i6 * 128 + 128, k3 * 128, l14, k3 * 128, 2);
+								WorldController.method277(l2, l4 * 128, i16,
+										i6 * 128 + 128, k3 * 128, l14,
+										k3 * 128, 2);
 								for (int i17 = j7; i17 <= l8; i17++) {
 									for (int i18 = l4; i18 <= i6; i18++)
 										anIntArrayArrayArray135[i17][i18][k3] &= ~j2;
+
+
 								}
+
+
 							}
 						}
 						if ((anIntArrayArrayArray135[i3][i4][k3] & k2) != 0) {
@@ -360,26 +406,39 @@ final class ObjectManager {
 							int j6 = i4;
 							int k7 = k3;
 							int i9 = k3;
-							for (; k7 > 0 && (anIntArrayArrayArray135[i3][i4][k7 - 1] & k2) != 0; k7--)
+							for (; k7 > 0
+							&& (anIntArrayArrayArray135[i3][i4][k7 - 1] & k2) != 0; k7--)
 								;
-							for (; i9 < anInt147 && (anIntArrayArrayArray135[i3][i4][i9 + 1] & k2) != 0; i9++)
+							for (; i9 < anInt147
+							&& (anIntArrayArrayArray135[i3][i4][i9 + 1] & k2) != 0; i9++)
 								;
 							label4: for (; i5 > 0; i5--) {
 								for (int l11 = k7; l11 <= i9; l11++)
 									if ((anIntArrayArrayArray135[i3][i5 - 1][l11] & k2) == 0)
 										break label4;
+
+
 							}
+
+
 							label5: for (; j6 < anInt146; j6++) {
 								for (int i12 = k7; i12 <= i9; i12++)
 									if ((anIntArrayArrayArray135[i3][j6 + 1][i12] & k2) == 0)
 										break label5;
+
+
 							}
+
+
 							if (((j6 - i5) + 1) * ((i9 - k7) + 1) >= 4) {
 								int j12 = anIntArrayArrayArray129[i3][i5][k7];
-								WorldController.method277(l2, i5 * 128, j12, j6 * 128 + 128, i9 * 128 + 128, j12, k7 * 128, 4);
+								WorldController.method277(l2, i5 * 128, j12,
+										j6 * 128 + 128, i9 * 128 + 128, j12,
+										k7 * 128, 4);
 								for (int k13 = i5; k13 <= j6; k13++) {
 									for (int i15 = k7; i15 <= i9; i15++)
 										anIntArrayArrayArray135[i3][k13][i15] &= ~k2;
+
 
 								}
 							}
