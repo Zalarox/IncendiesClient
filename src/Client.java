@@ -219,13 +219,18 @@ public class Client extends RSApplet {
 	}
 
 	public void drawChatArea() {
+		//clientSize seems to refer to fixed vs resizeable mode
+		//clientSize == 0 (fixed), clientSize != 0 (resizeable) 
 		int offsetX = 0;
 		int offsetY = clientSize != 0 ? clientHeight - 165 : 0;
+		
 		if (clientSize == 0) {
 			chatAreaIP.initDrawingArea();
 		}
+		
 		Texture.lineOffsets = anIntArray1180;
 		TextDrawingArea textDrawingArea = normalFont;
+		
 		if (showChat) {
 			if (clientSize == 0) {
 				cacheSprite[0].drawSprite(0 + offsetX, 0 + offsetY);
@@ -233,25 +238,30 @@ public class Client extends RSApplet {
 				cacheSprite[88].drawARGBSprite(7 + offsetX, 7 + offsetY);
 			}
 		}
+		
 		drawChannelButtons(offsetX, offsetY);
+		
 		if (showInput) {
 			cacheSprite[64].drawSprite(0 + offsetX, 0 + offsetY);
 			newBoldFont.drawCenteredString(promptMessage, 259 + offsetX,
 					60 + offsetY, 0, -1);
 			newBoldFont.drawCenteredString(promptInput + "*", 259 + offsetX,
 					80 + offsetY, 128, -1);
+					
 		} else if (inputDialogState == 1) {
 			cacheSprite[64].drawSprite(0 + offsetX, 0 + offsetY);
 			newBoldFont.drawCenteredString("Enter amount:", 259 + offsetX,
 					60 + offsetY, 0, -1);
 			newBoldFont.drawCenteredString(amountOrNameInput + "*",
 					259 + offsetX, 80 + offsetY, 128, -1);
+					
 		} else if (inputDialogState == 2) {
 			cacheSprite[64].drawSprite(0 + offsetX, 0 + offsetY);
 			newBoldFont.drawCenteredString("Enter name:", 259 + offsetX,
 					60 + offsetY, 0, -1);
 			newBoldFont.drawCenteredString(amountOrNameInput + "*",
 					259 + offsetX, 80 + offsetY, 128, -1);
+					
 		} else if (inputDialogState == 3) {
 			/*
 			 * if (amountOrNameInput != "") { itemSearch(amountOrNameInput); }
@@ -274,7 +284,9 @@ public class Client extends RSApplet {
 			 * DrawingArea.drawHorizontalLine(121 + offsetY, clientSize == 0 ?
 			 * 0x807660 : 0xffffff, 505, 7);
 			 */
+			 
 			displayItemSearch();
+			
 		} else if (aString844 != null) {
 			cacheSprite[64].drawSprite(0 + offsetX, 0 + offsetY);
 			newBoldFont.drawCenteredString(aString844, 259 + offsetX,
@@ -297,7 +309,7 @@ public class Client extends RSApplet {
 			for (int index = 0; index < 500; index++)
 				if (chatMessages[index] != null) {
 					int chatType = chatTypes[index];
-					int positionY = (70 - messageY * 14) + anInt1089 + 6;
+					int positionY = (68 - messageY * 14) + anInt1089 + 6; //The Y offset of where sent messages appear.
 					String name = chatNames[index];
 					String prefixName = name;
 					final String time = "[" + /* chatTimes[index] */"" + "]";
@@ -510,24 +522,27 @@ public class Client extends RSApplet {
 			} else {
 				textDrawingArea.method389(clientSize == 0 ? false : true,
 						11 + offsetX, clientSize == 0 ? 0 : 0xffffff, name,
-								133 + offsetY);
+								133 + offsetY); //Player's name
 				cacheSprite[14].drawSprite(textDrawingArea.getTextWidth(name)
-						+ 11 + offsetX, 123 + offsetY);
+						+ 11 + offsetX, 123 + offsetY); //QuickChat sprite
 				textDrawingArea.method389(clientSize == 0 ? false : true,
 						textDrawingArea.getTextWidth(name) + 24 + offsetX,
-						clientSize == 0 ? 0 : 0xffffff, ": ", 133 + offsetY);
-				// newRegularFont.drawRAString(inputString + "*", 24 +
-				// newRegularFont.getTextWidth(s + ": ") + xPosOffset, 133 +
-				// yPosOffset, clientSize == 0 ? 255 : 0x7FA9FF, clientSize == 0
-				// ? -1 : 0);
+						clientSize == 0 ? 0 : 0xffffff, ": ", 133 + offsetY); //No detectable change
+				/*
+				//This block causes typed text to orient right-to-left instead of left-to-right
+				newRegularFont.drawRAString(inputString + "*", 24 +
+				newRegularFont.getTextWidth(s + ": ") + xPosOffset, 133 +
+				yPosOffset, clientSize == 0 ? 255 : 0x7FA9FF, clientSize == 0
+				? -1 : 0);
+				*/
 				newRegularFont.drawBasicString(inputString + "*", 24
 						+ newRegularFont.getTextWidth(name + ": ") + offsetX,
 						133 + offsetY, clientSize == 0 ? 255 : 0x7FA9FF,
-								clientSize == 0 ? -1 : 0);
+								clientSize == 0 ? -1 : 0); //The place where typed text goes before it is sent
 			}
 			if (clientSize == 0)
 				DrawingArea.drawHorizontalLine(121 + offsetY,
-						clientSize == 0 ? 0x807660 : 0xffffff, 505, 7);
+						clientSize == 0 ? 0x807660 : 0xffffff, 505, 7); //Horizontal line above player's  name
 		} else if (quickChat) {
 			cacheSprite[64].drawSprite(0 + offsetX, 0 + offsetY);
 			displayQuickChat(offsetX, offsetY);
