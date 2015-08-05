@@ -2,12 +2,10 @@ package src;
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import src.sign.signlink;
 
+@SuppressWarnings("serial")
 public class RSApplet extends Applet
     implements Runnable, MouseListener, MouseMotionListener, MouseWheelListener, KeyListener, FocusListener, WindowListener
 {
@@ -107,6 +105,8 @@ public class RSApplet extends Applet
         {
             mainFrame.addWindowListener(this);
         }
+    	setFocusTraversalKeysEnabled(false);
+    	
         drawLoadingText(0, "Loading...");
         startUp();
         int i = 0;

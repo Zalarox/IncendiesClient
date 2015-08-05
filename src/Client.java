@@ -7691,7 +7691,7 @@ public class Client extends RSApplet {
 			else
 				s5 = ItemList[i1].itemDescription;
 			if (s5.contains("<")) {
-				s5 = "Why are you examining the" + itemDef.name.toLowerCase() + "?";
+				s5 = "It's a " + itemDef.name + ".";
 			}
 			pushMessage(s5, 0, "");
 		}
@@ -7748,7 +7748,7 @@ public class Client extends RSApplet {
 			String s6;
 			s6 = ItemList[i1].itemDescription;
 			if (s6.contains("<")) {
-				s6 = "Why are you examining the " + itemDef_1.name.toLowerCase() + "?";
+				s6 = "It's a " + itemDef_1.name + ".";
 			}
 			pushMessage(s6, 0, "");
 		}
@@ -8381,7 +8381,7 @@ public class Client extends RSApplet {
 				}
 			} else if (backDialogID == -1) {
 				if (j == 9)
-					tabToReplyPm();
+					tab2reply();
 				if (j >= 32 && j <= 122 && inputString.length() < 80) {
 					inputString += (char) j;
 					inputTaken = true;
@@ -9825,7 +9825,7 @@ public class Client extends RSApplet {
 				return;
 			}
 			if (loginCode == 6) {
-				loginMessage1 = "Incendius has been updated!";
+				loginMessage1 = "RuneScape has been updated!";
 				loginMessage2 = "Please reload this page.";
 				loginScreenState = 2;
 				return;
@@ -11026,7 +11026,7 @@ public class Client extends RSApplet {
 			g.setColor(Color.yellow);
 			int k = 35;
 			g.drawString(
-					"Sorry, an error has occured whilst loading Incendius", 30,
+					"Sorry, an error has occured whilst loading RuneScape", 30,
 					k);
 			k += 50;
 			g.setColor(Color.white);
@@ -17781,53 +17781,52 @@ public class Client extends RSApplet {
 		}
 	}
 
-	public void tabToReplyPm() {
+	public void tab2reply() {		
 		String name = null;
-		for (int j = 0; j < 100; j++)
-			if (chatMessages[j] != null) {
-				int chatType = chatTypes[j];
+	
+		for (int i = 0; i < 100; i++)
+			if (chatMessages[i] != null) { //aStringArray944
+				
+				int chatType = chatTypes[i]; //anIntArray942
+				
 				if (chatType == 3 || chatType == 7) {
-					name = chatNames[j];
+					name = chatNames[i]; //anIntArray943
 					break;
 				}
 			}
-		if (name != null && name.startsWith("@cr0@")) {
-			name = name.substring(5);
+
+		if (name == null) {
+			pushMessage("You haven't received any messages to which you can reply.", 0, ""); 
+			return;
 		}
-		if (name != null && name.startsWith("@cr1@")) {
+
+		if (name.startsWith("@cr")) {
 			name = name.substring(5);
+			
 		}
-		if (name != null && name.startsWith("@cr2@")) {
-			name = name.substring(5);
+		
+		System.out.println("tab2reply is sending a message to " + name);
+		
+		long nameAsLong = TextClass.longForName(name.trim()); //Class50.method583()
+		int node = -1; //k3
+		
+		for (int i = 0; i < friendsCount; i++) { //i4
+			if (friendsListAsLongs[i] != nameAsLong)
+				continue;
+			node = i;
+			break;
 		}
-		if (name == null)
-			pushMessage("You have not recieved any messages.", 0, "");
-		try {
-			if (name != null) {
-				long namel = TextClass.longForName(name.trim());
-				int node = -1;
-				for (int count = 0; count < friendsCount; count++) {
-					if (friendsListAsLongs[count] != namel)
-						continue;
-					node = count;
-					break;
-				}
-				if (node != -1 && friendsNodeIDs[node] > 0) {
-					inputTaken = true;
-					inputDialogState = 0;
-					showChat = true;
-					promptInput = "";
-					friendsListAction = 3;
-					aLong953 = friendsListAsLongs[node];
-					promptMessage = "Enter message to send to "
-							+ friendsList[node];
-				} else {
-					pushMessage(capitalize(name) + " is currently offline.", 0,
-							"");
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		
+		if (node != -1 && friendsNodeIDs[node] > 0) {		
+			inputTaken = true;
+			inputDialogState = 0; //anInt1225
+			showInput = true; //aBoolean1256 (???)
+			promptInput = ""; //aString1212
+			friendsListAction = 3; //anInt1064
+			aLong953 = friendsListAsLongs[node];
+			promptMessage = "Enter message to send to " + friendsList[node]; //aString1121
+		} else {
+			pushMessage(capitalize(name) + " is currently offline.", 0, "");
 		}
 	}
 
