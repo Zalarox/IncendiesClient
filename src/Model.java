@@ -3,6 +3,8 @@ import java.io.*;
 import java.net.*;
 import java.util.zip.*;
 
+import src.item.ItemDef;
+
 public class Model extends Animable {
 
 	public static void nullLoader() {
@@ -399,16 +401,30 @@ public class Model extends Animable {
 
 	public Model(int modelId) {
 		byte[] is = aClass21Array1661[modelId].aByteArray368;
-		if (is[is.length - 1] == -1 && is[is.length - 2] == -1)
+		if (is[is.length - 1] == -1 && is[is.length - 2] == -1) {
 			read622Model(is, modelId);
-		else
+			System.out.print("Loaded 622 model: " + modelId);
+		} else {
 			readOldModel(modelId);
+			System.out.print("Loaded old model: " + modelId);
+		}
+			
 		if (newmodel[modelId]) {
-			scale2(4);// 2 is too big -- 3 is almost right
+			scale2(4);
+			
+			//This is a cheap fix for the problem where higher-revision items 
+			//will take priority over the player model & always display on top 
+			//of the player model instead of behind it.
+			//
+			//However, it also seems to break the inventory models for the
+			//fire rune and the amulet of glory. Still working on a fix for that.	
 			if (anIntArray1638 != null) {
+				System.out.println(" (fixed)");
 				for (int j = 0; j < anIntArray1638.length; j++)
 					anIntArray1638[j] = 10;
 			}
+		} else {
+			System.out.println();
 		}
 	}
 
