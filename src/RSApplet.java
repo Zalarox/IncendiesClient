@@ -105,7 +105,7 @@ public class RSApplet extends Applet
         {
             mainFrame.addWindowListener(this);
         }
-    	setFocusTraversalKeysEnabled(false);
+    	mainFrame.setFocusTraversalKeysEnabled(false); //Make sure we set it on the actual FRAME this time...
     	
         drawLoadingText(0, "Loading...");
         startUp();

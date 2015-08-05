@@ -3,7 +3,6 @@ package src;
 import java.applet.AppletContext;
 import java.awt.*;
 import java.io.*;
-import java.math.BigInteger;
 import java.net.*;
 import java.util.zip.CRC32;
 import java.lang.reflect.Method;
@@ -1404,6 +1403,7 @@ public class Client extends RSApplet {
 
 	public double fillHP;
 
+	@SuppressWarnings("static-access")
 	public void drawHPOrb() {
 		int currentHp = 0;
 		try {
@@ -1442,6 +1442,7 @@ public class Client extends RSApplet {
 	private boolean prayClicked;
 	private String prayerBook;
 
+	@SuppressWarnings("static-access")
 	public void drawPrayerOrb() {
 		int currentPray = 0;
 		int maxPray = 0;
@@ -1485,6 +1486,7 @@ public class Client extends RSApplet {
 	public boolean running;
 	public int currentEnergy;
 
+	@SuppressWarnings("static-access")
 	public void drawRunOrb() {
 		int run = (int) (((double) currentEnergy / (double) 100) * 100D);
 		int x = getOrbX(2);
@@ -1518,6 +1520,7 @@ public class Client extends RSApplet {
 
 	public double fillSummoning;
 
+	@SuppressWarnings("static-access")
 	public void drawSummoningOrb() {
 		int summoning = (int) (((double) currentStats[23] / (double) maxStats[23]) * 100D);
 		int x = getOrbX(3);
@@ -17805,12 +17808,10 @@ public class Client extends RSApplet {
 			
 		}
 		
-		System.out.println("tab2reply is sending a message to " + name);
-		
 		long nameAsLong = TextClass.longForName(name.trim()); //Class50.method583()
-		int node = -1; //k3
+		int node = -1; 
 		
-		for (int i = 0; i < friendsCount; i++) { //i4
+		for (int i = 0; i < friendsCount; i++) {
 			if (friendsListAsLongs[i] != nameAsLong)
 				continue;
 			node = i;
