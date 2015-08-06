@@ -2523,7 +2523,7 @@ public final class RSInterface {
 		tab.width = 192;
 		tab.height = 263;
 		addText(5067, "Friends List:", kam, 1, 0xff9933, true, true);
-		addText(5068, "Zaros", kam, 1, 0xff9933, true, true);
+		addText(5068, "Incendius", kam, 1, 0xff9933, true, true);
 		addSprite(5069, 0, "Friends/SPRITE");
 		addSprite(5070, 1, "Friends/SPRITE");
 		addSprite(5071, 1, "Friends/SPRITE");
@@ -2573,7 +2573,7 @@ public final class RSInterface {
 		tab.width = 192;
 		tab.height = 263;
 		addText(5717, "Ignore List:", kam, 1, 0xff9933, true, true);
-		addText(5730, "Zaros", kam, 1, 0xff9933, true, true);
+		addText(5730, "Incendius", kam, 1, 0xff9933, true, true);
 		addSprite(5718, 0, "Friends/SPRITE");
 		addSprite(5719, 1, "Friends/SPRITE");
 		addSprite(5720, 1, "Friends/SPRITE");
@@ -4768,7 +4768,7 @@ public final class RSInterface {
 		int Y = 83;
 		int frame = 5;
 		for (int i = 16026; i <= 16125; i++) {
-			String[] questName = {"On my way to Zaros.", "Cook's Assistant"
+			String[] questName = {"On my way to Incendius.", "Cook's Assistant"
 
 			};
 			addText(i, "QuestID: " + i, 0xFF0000, false, true, -1, TDA, 0,

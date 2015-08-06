@@ -32,7 +32,7 @@ public final class EntityDef {
 			entityDef.name = "Slayer Master";
 			break;
 		case 945:
-			entityDef.name = "Zaros Guide";
+			entityDef.name = "Incendius Guide";
 			entityDef.actions = new String[5];
 			entityDef.actions[0] = "Talk-to";
 			entityDef.actions[2] = "Trade";

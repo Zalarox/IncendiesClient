@@ -11058,16 +11058,16 @@ public class Client extends RSApplet {
 			g.setFont(new Font("Helvetica", 1, 20));
 			g.setColor(Color.white);
 			g.drawString("Error - unable to load game!", 50, 50);
-			g.drawString("To play Zaros make sure you play from", 50,
+			g.drawString("To play Incendius make sure you play from", 50,
 					100);
-			g.drawString("http://zaros-rsps.info/", 50, 150);
+			g.drawString("http://incendi.us/", 50, 150);
 		}
 		if (rsAlreadyLoaded) {
 			aBoolean831 = false;
 			g.setColor(Color.yellow);
 			int l = 35;
 			g.drawString(
-					"Error a copy of Zaros already appears to be loaded",
+					"Error a copy of Incendius already appears to be loaded",
 					30, l);
 			l += 50;
 			g.setColor(Color.white);
