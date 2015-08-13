@@ -541,7 +541,7 @@ public class Client extends RSApplet {
 			}
 			if (clientSize == 0)
 				DrawingArea.drawHorizontalLine(121 + offsetY,
-						clientSize == 0 ? 0x807660 : 0xffffff, 505, 7); //Horizontal line above player's  name
+						clientSize == 0 ? 0x807660 : 0xffffff, 505, 7); //Horizontal line above player's name
 		} else if (quickChat) {
 			cacheSprite[64].drawSprite(0 + offsetX, 0 + offsetY);
 			displayQuickChat(offsetX, offsetY);
