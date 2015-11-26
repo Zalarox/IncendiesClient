@@ -2,7 +2,7 @@ package src;
 
 public class Configuration {
 	
-	public final static String server = "23.251.154.177";
+	public final static String server = "127.0.0.1";
 	
 	public final static double CLIENT_VERSION = 2.2;
 	
