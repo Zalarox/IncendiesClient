@@ -13144,7 +13144,7 @@ public class Client extends RSApplet {
 		}
 	}
 
-	public static boolean customCursor = true;
+	public static boolean customCursor = false;
 
 	public void drawTooltip() {
 		if (menuActionRow < 2 && itemSelected == 0 && spellSelected == 0) {
